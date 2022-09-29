@@ -1,5 +1,6 @@
 # rajayonin's Vim cheatsheet
 My personal cheatsheet for Vim, with the actions/commands I currently (and, in the near future, want to) use.  
+  
 For a more exhaustive cheatsheet please check [Vim Cheat Sheet](https://vim.rtorr.com/).  
 For a quite useful interactive Vim tutorial and console please check [Interactive Vim tutorial](https://openvim.com/tutorial.html).
 
@@ -149,12 +150,3 @@ Start recording a new macro named _macro_.
 Run _macro_.
     - `@@` - **rerun macro**  
     Rerun last macro.
-
-
-# rajayonin-specific
-These are some extra actions/commands I use.  
-To use them, they must be included in the .vimrc config file.  
-To check my config file, click [here](.vimrc).
-
-- `Alt`+`j`, `Alt`+`k` - **move line up/down**  
-Moves current line up/down.
