@@ -2,7 +2,8 @@
 My personal cheatsheet for Vim, with the actions/commands I currently (and, in the near future, want to) use.  
   
 For a more exhaustive cheatsheet please check [Vim Cheat Sheet](https://vim.rtorr.com/).  
-For a quite useful interactive Vim tutorial and console please check [Interactive Vim tutorial](https://openvim.com/tutorial.html).
+For a quite useful interactive Vim tutorial and console please check [Interactive Vim tutorial](https://openvim.com/tutorial.html).  
+If you also want to see what Vim can do (plugins, etc), watch [CTT's video](https://youtu.be/P88ydZVcm1s).ñ
 
 Vim is quite useful and powerfull, specially for shell-only enviroments, and I think every computer engineer/technician should learn it.  
 
@@ -118,6 +119,11 @@ Repeats _action_ _n_ times.
 ## Other
 - `Ctrl`+`y`, `Ctrl`+`e` - **scroll**  
 Move screen up/down one line (without moving cursor).
+
+
+# Visual actions
+Visual mode allows to select chunks of text, and perform certain actions on them, similar to selecting text with a mouse, making it a very useful tool.
+- 
 
 
 # Commands
