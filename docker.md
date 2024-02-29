@@ -30,6 +30,10 @@ sudo usermod -aG docker $USER
 - docker stats
 - docker kill
     - docker kill $(docker ps -q)
+- docker system prune -a
+- `docker run --name <name> -it <image> /bin/bash -i`
+- docker rm
+- docker system df
 
 ### Dockerfiile
 <!-- TODO -->

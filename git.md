@@ -8,7 +8,8 @@
 `git status`  
 `git stash` && `git stash pop`  
 `git mv`  
-`git diff`  
+`git diff`
+    - `git diff --shortstat oldCommit newCommit`
 `git checkout -- <file>`
 -->
 
