@@ -1,4 +1,6 @@
-# rajayonin's Git cheatsheet
+# (WIP) rajayonin's Git cheatsheet
+
+[Oh Shit, Git!?!](https://ohshitgit.com/)
 
 <!--
 `git log --all --full-history -- <path-to-file>`  

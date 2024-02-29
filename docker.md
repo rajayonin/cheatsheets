@@ -49,7 +49,9 @@ For using it you need a `docker-compose.yaml` file (see [docker-compose.yaml](#d
 ### docker-compose.yaml
 <!-- TODO -->
 
+<!--
 las imágenes se guardan en `/var/lib/docker`
 docker image prune
 docker container prune
 docker volume prune
+-->
