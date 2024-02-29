@@ -44,8 +44,6 @@ Move cursor to matching parenthesis.
 Jump to _next_ / _previous_ block/paragraph
 - `gg` / `G` - **goto**    
 Move cursor to the _beginning_ / _end_ of the file.
-    - `gd` - **goto declaration**  
-    Move to the declaration of the symbol under the cursor (variable, function, etc.).
     - `[n]gg` - **goto line**  
     Move cursor to the beginning of line _`n`_.
 
@@ -64,7 +62,7 @@ Delete character under the cursor/current line, enter INSERT mode. -->
 ### Edition
 
 - `r[char]` - **replace**  
-Replace character under cursor with _char_.  
+Replace character under cursor with _`char`_.  
 - `x` / `X` - **remove**  
 Remove character _at_ / _before_ cursor.
 - `d[movement]` - **delete** (cut)  
@@ -76,7 +74,7 @@ Eg.: `de` deletes until the end of the word.
     - `D`  
     Deletes until the end of the current line.
 - `J` / `gJ` - **join**  
-Join line below the current one, with / without one space in between.
+Join line below the current one, _with_ / _without_ one space in between.
 - `>>` / `<<` - **indent / de-indent**  
 _Indent_ / _de-indent_ current line one shiftwidth.
     - `>%` / `<%` - **indent/de-indent block**  
@@ -94,8 +92,7 @@ Copy characters in the [movement](#movement) _`movement`_ to clipboard.
 - `p` / `P` - **put** (paste)  
 Paste the clipboard _after_ / _before_ cursor.
 - `u` - **undo**  
-Undo last change.  
-This includes actions and everything done in INSERT mode.
+Undo last change. This includes actions and everything done in INSERT mode.
     - `U` - **restore line**  
     Restore changes to the last modified line.
 - `Ctrl`+`r` - **redo**  
@@ -106,13 +103,17 @@ Repeat last action.
 ### Search
 - `f[char]` / `F[char]` - **find**  
 Move to _next_ / _previous_ _`char`_ in line.
-    - `;`, `,` - **repeat find**  
-    Repeat last next/previous find.
+    - `;` / `,` - **repeat find**  
+    Repeat last _next_ / _previous_ find.
 - `/[text]` - **search**  
 Search _`text`_.
 Remember to press `Enter` afterwards.
-    - `n` / `N` - **match**  
-    Go to _next_ / _previous_ match.
+    - `n` / `N` - **next / previous match**
+      Go to _next_ / _previous_ match.
+- `gd` - **goto declaration**
+  Move to the declaration of the symbol under the cursor (variable, function, etc.).
+- `*` - **goto next**  
+  Goes to the next occurence of the word under the cursor.
 
 ### Action modifiers
 - `[n][action]` - **repeat**  
@@ -128,11 +129,12 @@ Moves through the movement history to the _previous_ / _next_ place the cursor w
 ## Visual actions
 VISUAL mode allows to select chunks of text using [movement actions](#movement), and perform certain actions on them, similar to selecting text with a mouse, making it a very useful tool.  
 The actions are similar to the regular ones, but without specifying a movement.
-- `c` - **change**
+
+- `c` - **change**  
   Removes selection and enters INSERT mode.
-- `y` - **yank**
+- `y` - **yank**  
   Copies the selection.
-- `d` - **delete**
+- `d` - **delete**  
   Deletes the selection.
 - `>` / `<` - **indent / de-indent**  
 _Indent_ / _de-indent_ selection one shiftwidth.
@@ -144,12 +146,13 @@ _Indent_ / _de-indent_ selection one shiftwidth.
   Enters INSERT mode. In VISUAL BLOCK mode, all text inserted is applied to all previously selected lines.
 - `J` - **join**  
   Joins lines in the selection.
-- `:` - **command**  
-  Execute a command that applies only to the selection.
+- `gu` / `gU` - **upper / lower case**  
+    Change the selection to _upper_ / _lower_ case.
 
 
 ## Commands
-Commands **can only be executed in NORMAL mode**, and are preceded by `:`.  
+Commands **can only be executed in NORMAL or VISUAL mode**, and are preceded by `:` In VISUAL mode, the command applies only to the selection.  
+
 To execute a command, press `Enter`.  
 To cancel any command, press `Esc`.
 
@@ -161,9 +164,11 @@ Save current file.
 Quit Vim.
 - `:x` - **save & quit**  
 Save current file and quit Vim.
+- `:![sh command]` - **shell comand**  
+Executes the specified _`sh comand`_ shell command.
 
 Commands can be "forced" by adding `!` at the end.  
-Eg.: `:q!` - **force quit**.
+Eg.: `:q!` - force quit.
 
 
 ## Macros
@@ -179,16 +184,27 @@ Run _`macro`_.
     Rerun last macro.
 
 
+## Clipboard
+When yanking or pasting text in Vim, it only works _inside_ of Vim, that is, you can't copy stuff into/from your system's clipboard.  
+In order to access your system's clipboard, use `"*` before any yank, delete, or paste.  
+
+Alternatively, you can set your system's clipboard as default by adding `set clipboard=unnamed` to your `.vimrc`[^1] (see [configuration](#configuration)).  
+
+For this to work, remember to install `vim-gtk3`.
+
+[^1]: For Neovim users using Lua config, use `vim.opt.clipboard = 'unnamedplus'`.
+
 ## Configuration
 Config files are stored in `~/.vimrc`. You can check my personal configuration [here](https://github.com/rajayonin/dotfiles/blob/main/.vimrc).
+
 <!-- TODO: vimrc -->
 
 
 ## More information
-
-- For a more exhaustive cheatsheet please check [Vim Cheat Sheet](https://vim.rtorr.com/).  
-- For a quite useful interactive Vim tutorial and console please check [Interactive Vim tutorial](https://openvim.com/tutorial.html).  
-- For a more in-depth reference guide, chek out [Vim reference](https://learnbyexample.github.io/vim_reference/) or consult the manual (`man vim`).  
+- For a more exhaustive cheatsheet please check [Vim Cheat Sheet](https://vim.rtorr.com/).
+- For a quite useful interactive Vim tutorial and console please check [Interactive Vim tutorial](https://openvim.com/tutorial.html).
+- For an online Vim editor, go to [Vim Online Editor](https://www.vimonlineeditor.com/).
+- For a more in-depth reference guide, check out [Vim reference](https://learnbyexample.github.io/vim_reference/) or consult the manual (`man vim`).
 - If you also want to see what Vim can do (plugins, etc), watch [CTT's video](https://youtu.be/P88ydZVcm1s).
-- If you're new to Vim, may I suggest using [Neovim](https://neovim.io/) instead? It's _like_ Vim, but with better performance, easier configuration, better plugins, and better support.
-  - You can also check out [neovim-learning](https://github.com/guluc3m/neovim-learning) (WIP).
+- May I suggest using [Neovim](https://neovim.io/) instead of Vim? It's _like_ Vim, but with better performance, easier configuration, better plugins, and better overall support.
+    - You can also check out [neovim-learning](https://github.com/guluc3m/neovim-learning) (WIP).
