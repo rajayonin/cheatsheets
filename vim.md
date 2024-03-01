@@ -110,7 +110,7 @@ Search _`text`_.
 Remember to press `Enter` afterwards.
     - `n` / `N` - **next / previous match**
       Go to _next_ / _previous_ match.
-- `gd` - **goto declaration**
+- `gd` - **goto declaration**  
   Move to the declaration of the symbol under the cursor (variable, function, etc.).
 - `*` - **goto next**  
   Goes to the next occurence of the word under the cursor.
@@ -118,12 +118,6 @@ Remember to press `Enter` afterwards.
 ### Action modifiers
 - `[n][action]` - **repeat**  
 Repeats _`action`_ _`n`_ times.
-
-### Other
-- `Ctrl`+`y` / `Ctrl`+`e` - **scroll**  
-Move screen _up_ / _down_ one line (without moving cursor).
-- `Ctrl`+`o` / `Ctrl`+`i` - **go backwards / forwards**  
-Moves through the movement history to the _previous_ / _next_ place the cursor was.
 
 
 ## Visual actions
@@ -149,6 +143,13 @@ _Indent_ / _de-indent_ selection one shiftwidth.
 - `gu` / `gU` - **upper / lower case**  
     Change the selection to _upper_ / _lower_ case.
 
+## Other actions
+- `Ctrl`+`y` / `Ctrl`+`e` - **scroll**  
+Move screen _up_ / _down_ one line (without moving cursor).
+- `Ctrl`+`o` / `Ctrl`+`i` - **go backwards / forwards**  
+Moves through the movement history to the _previous_ / _next_ place the cursor was.
+- `gv` - **re-select**  
+Re-selects the last selection from VISUAL mode.
 
 ## Commands
 Commands **can only be executed in NORMAL or VISUAL mode**, and are preceded by `:` In VISUAL mode, the command applies only to the selection.  
