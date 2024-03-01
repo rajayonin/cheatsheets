@@ -14,9 +14,9 @@ There are many ways of entering it (see [Insertion](#insertion)).
 3. **VISUAL mode:** Here you can select characters using [movement actions](#movement). Unlike the other modes, you perform [visual actions](#visual-actions) instead of regular [actions](#actions).  
 Enter it by pressing `v`. You can also exit by pressing `v`.
     1. **VISUAL LINE mode:** Selects whole lines.
-        Enter it by pressing `V`.
+        Enter it by pressing `V`. You can also exit by pressing `V`.
     2. **VISUAL BLOCK mode:** Allows to select the same columns across multiple lines.
-        Enter it by pressing `Ctrl`+`v`.
+        Enter it by pressing `Ctrl`+`v`. You can also exit by pressing `Ctrl`+`v`.
 
 
 ## Actions
@@ -166,6 +166,11 @@ Quit Vim.
 Save current file and quit Vim.
 - `:![sh command]` - **shell comand**  
 Executes the specified _`sh comand`_ shell command.
+- `:s[d][search][d][replace][d]g` - **search and replace**  
+Replaces all ocurences of _`search`_ with _`replace`_ within the current line (or selection if VISUAL mode), using the character _`d`_ as a delimeter. This follows [sed](https://www.gnu.org/software/sed/manual/sed.html)'s syntax.
+    - Use `%s` to affect the full file.
+    - Add `i` at the end for case insensitive.
+    - The delimiter is any character to separate the different parts, preferably that is not in _`search`_ or _`replace`_ so that you don't need to escape it. Traditionally, it's `/`. 
 
 Commands can be "forced" by adding `!` at the end.  
 Eg.: `:q!` - force quit.
@@ -186,7 +191,7 @@ Run _`macro`_.
 
 ## Clipboard
 When yanking or pasting text in Vim, it only works _inside_ of Vim, that is, you can't copy stuff into/from your system's clipboard.  
-In order to access your system's clipboard, use `"*` before any yank, delete, or paste.  
+In order to access your system's clipboard, use `"+` before any yank, delete, or paste.  
 
 Alternatively, you can set your system's clipboard as default by adding `set clipboard=unnamed` to your `.vimrc`[^1] (see [configuration](#configuration)).  
 
@@ -207,4 +212,4 @@ Config files are stored in `~/.vimrc`. You can check my personal configuration [
 - For a more in-depth reference guide, check out [Vim reference](https://learnbyexample.github.io/vim_reference/) or consult the manual (`man vim`).
 - If you also want to see what Vim can do (plugins, etc), watch [CTT's video](https://youtu.be/P88ydZVcm1s).
 - May I suggest using [Neovim](https://neovim.io/) instead of Vim? It's _like_ Vim, but with better performance, easier configuration, better plugins, and better overall support.
-    - You can also check out [neovim-learning](https://github.com/guluc3m/neovim-learning) (WIP).
+    - You can also check out [neovim-learning](https://github.com/guluc3m/neovim-learning).
