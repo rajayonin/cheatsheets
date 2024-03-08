@@ -150,6 +150,10 @@ Move screen _up_ / _down_ one line (without moving cursor).
 Moves through the movement history to the _previous_ / _next_ place the cursor was.
 - `gv` - **re-select**  
 Re-selects the last selection from VISUAL mode.
+- `ZQ` - **force quit**  
+Quits Vim, discarding all unsaved changes.
+- `ZZ` - **save & quit**  
+Save current file and quit Vim.
 
 ## Commands
 Commands **can only be executed in NORMAL or VISUAL mode**, and are preceded by `:` In VISUAL mode, the command applies only to the selection.  
