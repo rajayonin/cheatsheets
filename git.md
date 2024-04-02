@@ -14,6 +14,6 @@
     - `git diff --shortstat oldCommit newCommit`
 `git checkout -- <file>`
 `git add -p`
-`git commit --ammend --no-edit`
+`git commit --amend --no-edit`
 -->
 
