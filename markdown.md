@@ -1,4 +1,4 @@
-# rajayonin's Markdown cheatsheet
+# (WIP) rajayonin's Markdown cheatsheet
 
 Markdown is, in my opinion, just the best text-formatting language. It has a simple and intuitive syntax, making it easy to understand the text structure even as plain text, but also provides great results with just enough formatting for READMEs, notes, instructions, and cheatsheets, such as this one.  
 The compiler takes the text in `.md` files and translates it to HTML, so you can even write HTML syntax inside Markdown and it will work!  
@@ -49,3 +49,4 @@ The different ways of organizing text.
 
 ## Others
 - **Break line**: In order to use a line break, use double space at the end of the line.
+- Emojis: <https://github.com/ikatyang/emoji-cheat-sheet/tree/master#symbols>
