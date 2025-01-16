@@ -56,7 +56,6 @@ Perform the edition inside the specified pair, including the pair.
 
 An example is `di{`, which deletes everything enclosed in the current `{` pair. `{whatever}` → `{}`.
 
-lskdjfkdjs
 
 ### Insertion
 
@@ -154,6 +153,8 @@ _Indent_ / _de-indent_ selection one shiftwidth.
   Joins lines in the selection.
 - `u` / `U` - **upper / lower case**  
     Change the selection to _upper_ / _lower_ case.
+- `p` / `P` - **replace**
+    Replaces the current selection with the clipboard and save / don't save the selection to the clipboard.
 
 ## Other actions
 - `Ctrl`+`y` / `Ctrl`+`e` - **scroll**  
