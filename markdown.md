@@ -41,7 +41,12 @@ The different ways of organizing text.
 - **Horizontal rules** - `---`:
 
 ## Links
+You can create custom links:
+```
+## Mi long-ass title {#short-title}
 
+As mentioned in [here](#short-title)...
+```
 
 
 ## Images
