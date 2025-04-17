@@ -51,8 +51,10 @@ Move cursor to the _beginning_ / _end_ of the file.
 When executing a movement within an [edition](#edition), you can also specify some modifiers, typically used for editing within character pairs (`{}`, `[]`, ...).
 - `i[char]` - **inside**  
 Perform the action _inside_ the specified pair.
-- `a[char]` - **arround**
+- `a[char]` - **arround**  
 Perform the edition inside the specified pair, including the pair.
+- `s[char]` - **surrounding**
+- Perform the edition on the character pairs.
 
 An example is `di{`, which deletes everything enclosed in the current `{` pair. `{whatever}` → `{}`.
 
@@ -66,8 +68,9 @@ Enter INSERT mode _after_ the cursor / _at the end of the line_.
 Useful in combination with end, e.g. `ea` inserts to the end of the word.
 - `o` / `O` - **newline**  
 Add a new line _after_ / _before_ the current one, enter INSERT mode on new line.
-<!--- `s`, `S` - **supress**  
-Delete character under the cursor/current line, enter INSERT mode. -->
+- `s`, `S` - **supress**  
+Delete character under the cursor/current line, enter INSERT mode.  
+In VISUAL mode, `s` deletes the selection, and `S` is used for the [vim-surround](https://github.com/tpope/vim-surround) / [nvim-surround](https://github.com/kylechui/nvim-surround) plugin.
 
 
 ### Edition
@@ -165,6 +168,10 @@ Moves through the movement history to the _previous_ / _next_ place the cursor w
 Move cursor _up_ / _down_ half a screen size.
 - `gv` - **re-select**  
 Re-selects the last selection from VISUAL mode.
+- `gv` - **goto-insertion**  
+Goes to the last insertion location and enters INSERT mode.
+- `gq` - **wrap**  
+Wraps the specified text (selection/movement) to `textwidth`
 - `ZQ` - **force quit**  
 Quits Vim, discarding all unsaved changes.
 - `ZZ` - **save & quit**  
@@ -216,20 +223,23 @@ Run _`macro`_.
     - `@@` - **rerun macro**  
     Rerun last macro.
 
+> [!TIP]
+> You can combine this with an [action modifier](#action-modifiers) to execute macros _n_ times, e.g. `5@a`.
+
 
 ## Splits
 You can open multiple files side by side within Vim, by using windows.
-- `Ctrl+w+v` - **vertical split**  
+- `Ctrl`+`w`+`v` - **vertical split**  
 Opens the current file in a new vertical split.
-- `Ctrl+w+s` - **horizontal split**  
+- `Ctrl`+`w`+`s` - **horizontal split**  
 Opens the current file in a new horizontal split.
-- `Ctrl+w+h` / `Ctrl+w+j` / `Ctrl+w+k` / `Ctrl+w+l` - **move split**  
+- `Ctrl`+`w`+`h` / `Ctrl`+`w`+`j` / `Ctrl`+`w`+`k` / `Ctrl`+`w`+`l` - **move split**  
 Move to the split _left_ / _down_ / _up_ / _right_.
-- `Ctrl+w+o` - **current split**  
+- `Ctrl`+`w`+`o` - **current split**  
 Closes all splits except the current one.
-- `Ctrl+w+q` - **close window**  
+- `Ctrl`+`w`+`q` - **close window**  
 Closes the current window.
-- `Ctrl+w+=` - **equal splits**  
+- `Ctrl`+`w`+`=` - **equal splits**  
 Makes all split sizes equal.
 
 
@@ -240,13 +250,13 @@ In order to access your system's clipboard, use `"+` before any yank, delete, or
 
 Alternatively, you can set your system's clipboard as default by adding `set clipboard=unnamed` to your `.vimrc`[^1] (see [configuration](#configuration)).  
 
-For this to work, remember to install `vim-gtk3`.
+For this to work, remember to install `vim-gtk3` on Linux.
 
 [^1]: For Neovim users using Lua config, use `vim.opt.clipboard = 'unnamedplus'`.
 
 
 ## Configuration
-Config files are stored in `~/.vimrc`. You can check my personal configuration [here](https://github.com/rajayonin/dotfiles/blob/main/.vimrc).
+Config files are stored in `~/.vimrc`. You can check [my personal configuration](https://github.com/rajayonin/dotfiles/blob/main/vim/.vimrc).
 
 <!-- TODO: vimrc -->
 
@@ -258,7 +268,15 @@ Config files are stored in `~/.vimrc`. You can check my personal configuration [
 - For a more exhaustive cheatsheet please check [Vim Cheat Sheet](https://vim.rtorr.com/).
 - For a quite useful interactive Vim tutorial and console please check [Interactive Vim tutorial](https://openvim.com/tutorial.html).
 - For an online Vim editor, go to [Vim Online Editor](https://www.vimonlineeditor.com/).
-- For a more in-depth reference guide, check out [Vim reference](https://learnbyexample.github.io/vim_reference/) or consult the manual (`man vim`).
+- For a more in-depth reference guide, check out [Vim reference](https://learnbyexample.github.io/vim_reference/), consult the manual (`man vim`), or type `:help` or `:help <topic>` inside Vim.
 - If you also want to see what Vim can do (plugins, etc), watch [CTT's video](https://youtu.be/P88ydZVcm1s).
+- [Sylvan Franklin on YouTube](https://www.youtube.com/@sylvanfranklin) has also a set of videos with cool Vim tips.
+- Many IDEs support Vim emulation:
+  - [VSCodeVim](https://marketplace.visualstudio.com/items/?itemName=vscodevim.vim) (VS Code)
+  - [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim) (JetBrains IDEs)
+  - [Vrapper](https://marketplace.eclipse.org/content/vrapper-vim) (Eclipse)
+  - [Evil](https://github.com/emacs-evil/evil) (Emacs)
 - May I suggest using [Neovim](https://neovim.io/) instead of Vim? It's _like_ Vim, with worse performance, but easier configuration, better plugins, and better overall support.
-    - You can also check out [neovim-learning](https://github.com/guluc3m/neovim-learning).
+    - Check out [neovim-learning](https://github.com/guluc3m/neovim-learning)
+    - Also check out [my neovim config](https://github.com/rajayonin/dotfiles/tree/main/nvim)
+- Another alternative editor is [Helix](https://helix-editor.com/), with an alternative (but fundamentally similar) movement philosophy.
