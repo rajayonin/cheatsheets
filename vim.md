@@ -233,7 +233,7 @@ You can open multiple files side by side within Vim, by using windows.
 Opens the current file in a new vertical split.
 - `Ctrl`+`w`+`s` - **horizontal split**  
 Opens the current file in a new horizontal split.
-- `Ctrl`+`w`+`h` / `Ctrl`+`w`+`j` / `Ctrl`+`w`+`k` / `Ctrl`+`w`+`l` - **move split**  
+- `Ctrl`+`w`+`h` / `Ctrl`+`w`+`j` / `Ctrl`+`w`+`k` / `Ctrl`+`w`+`l` - **change split**  
 Move to the split _left_ / _down_ / _up_ / _right_.
 - `Ctrl`+`w`+`o` - **current split**  
 Closes all splits except the current one.
@@ -241,6 +241,10 @@ Closes all splits except the current one.
 Closes the current window.
 - `Ctrl`+`w`+`=` - **equal splits**  
 Makes all split sizes equal.
+- `Ctrl`+`w`+`r` / `Ctrl`+`w`+`R` - **rotate split**  
+Moves the split _clockwise_ / _counter clockwise_
+- `Ctrl`+`w`+`H` / `Ctrl`+`w`+`J` / `Ctrl`+`w`+`K` / `Ctrl`+`w`+`L` - **move split**  
+Move the split to the far _left_ / _down_ / _up_ / _right_.
 
 
 
