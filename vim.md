@@ -274,7 +274,7 @@ Config files are stored in `~/.vimrc`. You can check [my personal configuration]
 - For an online Vim editor, go to [Vim Online Editor](https://www.vimonlineeditor.com/).
 - For a more in-depth reference guide, check out [Vim reference](https://learnbyexample.github.io/vim_reference/), consult the manual (`man vim`), or type `:help` or `:help <topic>` inside Vim.
 - If you also want to see what Vim can do (plugins, etc), watch [CTT's video](https://youtu.be/P88ydZVcm1s).
-- [Sylvan Franklin on YouTube](https://www.youtube.com/@sylvanfranklin) has also a set of videos with cool Vim tips.
+- [Sylvan Franklin on YouTube](https://www.youtube.com/playlist?list=PLmJxZoD0RVtAlKCeLdRdpcuhx49aRZh4D) has also a set of videos with cool Vim tips.
 - Many IDEs support Vim emulation:
   - [VSCodeVim](https://marketplace.visualstudio.com/items/?itemName=vscodevim.vim) (VS Code)
   - [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim) (JetBrains IDEs)
@@ -283,4 +283,4 @@ Config files are stored in `~/.vimrc`. You can check [my personal configuration]
 - May I suggest using [Neovim](https://neovim.io/) instead of Vim? It's _like_ Vim, with worse performance, but easier configuration, better plugins, and better overall support.
     - Check out [neovim-learning](https://github.com/guluc3m/neovim-learning)
     - Also check out [my neovim config](https://github.com/rajayonin/dotfiles/tree/main/nvim)
-- Another alternative editor is [Helix](https://helix-editor.com/), with an alternative (but fundamentally similar) movement philosophy.
+- Another alternative editor is [Helix](https://helix-editor.com/), with an alternative (but fundamentally similar) movement philosophy. If you still prefer the Vim keybindings, as they are also present in many other editors, but want a batteries-included editor, try [evil-helix](https://evil-helix.github.io/)
