@@ -99,12 +99,16 @@ Remove indentation of the current line.
     Re-indent current block.
 - `gu[movement]` / `gU[movement]` - **upper / lower case**  
 Change to _upper_ / _lower_ case in the range of the [movement](#movement) _`movement`_.
+- `~` - **toggle case**  
+Converts the character under the cursor's case to lower / upper case, depending on the character's case.
 - `y[movement]` - **yank** (copy)  
 Copy characters in the [movement](#movement) _`movement`_ to clipboard.
     - `yy` - **yank line**  
     Copy the current line to clipboard.
 - `p` / `P` - **put** (paste)  
 Paste the clipboard _after_ / _before_ cursor.
+
+### History
 - `u` - **undo**  
 Undo last change. This includes actions and everything done in INSERT mode.
     - `U` - **restore line**  
@@ -119,6 +123,8 @@ Repeat last action.
 Move to _next_ / _previous_ _`char`_ in line.
     - `;` / `,` - **repeat find**  
     Repeat last _next_ / _previous_ find.
+- `~` - **toggle case**  
+Converts the character under the cursor case to lower / upper case, depending on the character's case.
 - `/[text]` - **search**  
 Search _`text`_.
 Remember to press `Enter` afterwards.
@@ -158,6 +164,9 @@ _Indent_ / _de-indent_ selection one shiftwidth.
     Change the selection to _upper_ / _lower_ case.
 - `p` / `P` - **replace**
     Replaces the current selection with the clipboard and save / don't save the selection to the clipboard.
+- `~` - **toggle case**  
+Converts the selection characters' case to lower / upper case, depending on the characters' case.
+
 
 ## Other actions
 - `Ctrl`+`y` / `Ctrl`+`e` - **scroll**  
@@ -168,7 +177,7 @@ Moves through the movement history to the _previous_ / _next_ place the cursor w
 Move cursor _up_ / _down_ half a screen size.
 - `gv` - **re-select**  
 Re-selects the last selection from VISUAL mode.
-- `gv` - **goto-insertion**  
+- `gi` - **goto-insertion**  
 Goes to the last insertion location and enters INSERT mode.
 - `gq` - **wrap**  
 Wraps the specified text (selection/movement) to `textwidth`
@@ -183,8 +192,9 @@ _Increments_ / _decrements_ the number below the cursor.
 ## Commands
 Commands **can only be executed in NORMAL or VISUAL mode**, and are preceded by `:` In VISUAL mode, the command applies only to the selection.  
 
-To execute a command, press `Enter`.  
-To cancel any command, press `Esc`.
+To execute a command, press `Enter`. To cancel any command, press `Esc`.
+
+Commands can be "forced" by adding `!` at the end. E.g.: `:q!` (force quit).
 
 - `:w` - **write**  
 Save current file.
@@ -192,7 +202,7 @@ Save current file.
     Save current file as _filename_.
 - `:q` - **quit**  
 Quit Vim.
-- `:x` - **save & quit**  
+- `:x` / `wq` - **save & quit**  
 Save current file and quit Vim.
 - `:e [filename]` - **edit**  
 Opens the specified _filename_.
@@ -206,22 +216,24 @@ Replaces all ocurences of _`search`_ with _`replace`_ within the current line (o
     - Use `%s` to affect the full file.
     - Add `i` at the end for case insensitive.
     - The delimiter is any character to separate the different parts, preferably that is not in _`search`_ or _`replace`_ so that you don't need to escape it. Traditionally, it's `/`. 
+- `:term` - **terminal**  
+Opens a terminal view. To exit, use `Ctrl`+`w`+`N`.
 
-Commands can be "forced" by adding `!` at the end.  
-Eg.: `:q!` - force quit.
 
 
 ## Macros
 Macros are series of inputs that can be recorded and redone, extremely useful for repeatable stuff you have to do in an specific file.
 
-- `q[macro]` - **start macro**  
-Start recording a new macro named _`macro`_.
+- `q[key]` - **start macro**  
+Starts recording a new macro _`key`_.
     - `q` - **stop macro**  
-    Stop recording the current macro.
-- `@[macro]` - **run macro**  
-Run _`macro`_.
+    Stops recording the current macro.
+    - `q[KEY]` - **append to macro**  
+    If _key_ was a lowercase character, e.g. `w`, doing `qW` starts recording again and appends the recorded actions to the `w` macro.
+- `@[key]` - **run macro**  
+Executes _`key`_.
     - `@@` - **rerun macro**  
-    Rerun last macro.
+    Reruns the last executed macro.
 
 > [!TIP]
 > You can combine this with an [action modifier](#action-modifiers) to execute macros _n_ times, e.g. `5@a`.
@@ -247,6 +259,17 @@ Moves the split _clockwise_ / _counter clockwise_
 Move the split to the far _left_ / _down_ / _up_ / _right_.
 
 
+## Tabs
+You can also use tabs in Vim:
+- `:tabnew` - **new tab**  
+Creates a new tab.
+    - `:tabnew [file]` - **open file in new tab**  
+    Opens the specified _file_ in a new tab.
+- `gt` / `:tabn` - **next tab**  
+Moves to the next tab.
+- `gT` / `:tabp` - **previous tab**  
+Moves to the previous tab.
+
 
 ## Clipboard
 When yanking or pasting text in Vim, it only works _inside_ of Vim, that is, you can't copy stuff into/from your system's clipboard.  
@@ -262,7 +285,7 @@ For this to work, remember to install `vim-gtk3` on Linux.
 ## Configuration
 Config files are stored in `~/.vimrc`. You can check [my personal configuration](https://github.com/rajayonin/dotfiles/blob/main/vim/.vimrc).
 
-<!-- TODO: vimrc -->
+For more information, check `:help vimrc-intro` and `:help option-list`.
 
 
 <!-- TODO: vim surround -->
@@ -283,4 +306,4 @@ Config files are stored in `~/.vimrc`. You can check [my personal configuration]
 - May I suggest using [Neovim](https://neovim.io/) instead of Vim? It's _like_ Vim, with worse performance, but easier configuration, better plugins, and better overall support.
     - Check out [neovim-learning](https://github.com/guluc3m/neovim-learning)
     - Also check out [my neovim config](https://github.com/rajayonin/dotfiles/tree/main/nvim)
-- Another alternative editor is [Helix](https://helix-editor.com/), with an alternative (but fundamentally similar) movement philosophy. If you still prefer the Vim keybindings, as they are also present in many other editors, but want a batteries-included editor, try [evil-helix](https://evil-helix.github.io/)
+- Another alternative editor is [Helix](https://helix-editor.com/), with an alternative (but fundamentally similar) movement philosophy. If you still prefer the Vim keybindings, as they are also present in many other editors, but want a batteries-included editor, try [evil-helix](https://evil-helix.github.io/).
