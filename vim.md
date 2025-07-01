@@ -239,6 +239,14 @@ Executes _`key`_.
 > You can combine this with an [action modifier](#action-modifiers) to execute macros _n_ times, e.g. `5@a`.
 
 
+> [!TIP]
+> You can easily edit a macro as text.
+> 1. Open a new scratch (temporal) buffer with `:new`
+> 2. Write the contents of the macro (register) in the buffer with `:put [KEY]` (e.g. `:put w`)
+> 3. Edit the line
+> 4. Re-save it to the register with `"[KEY]yy` (e.g. `"wyy`)
+
+
 ## Splits
 You can open multiple files side by side within Vim, by using windows.
 - `Ctrl`+`w`+`v` - **vertical split**  
