@@ -46,15 +46,24 @@ Jump to _next_ / _previous_ block/paragraph
 Move cursor to the _beginning_ / _end_ of the file.
     - `[n]gg` - **goto line**  
     Move cursor to the beginning of line _`n`_.
+    - `[n]go` - **goto byte**  
+    Move cursor to the byte number _`n`_. Remember that, in ASCII, a character is one byte, so this _roughly_ equates to "goto char".
 
 #### Modifiers
-When executing a movement within an [edition](#edition), you can also specify some modifiers, typically used for editing within character pairs (`{}`, `[]`, ...).
-- `i[char]` - **inside**  
+When executing a movement within an [edition](#edition), you can also specify some modifiers, typically used for editing within delimeter pairs (`{}`, `[]`, `""`...) or textobjects (word, paragraph, sentence).
+- `i[delimeter]` - **inside**  
 Perform the action _inside_ the specified pair.
-- `a[char]` - **arround**  
+- `a[delimeter]` - **arround**  
 Perform the edition inside the specified pair, including the pair.
-- `s[char]` - **surrounding**
-- Perform the edition on the character pairs.
+- `s[delimeter]` - **surrounding**
+Perform the edition on the character pairs.
+
+The different textobjects are:
+- `w` - word: Anything between whitespace
+- `W` - WORD: Anything between whitespace, _including_ the whitespace
+- `p` - paragraph: Anything between two blank lines
+- `s` - sentence: Anything ending in a punctuation mark, followed by whitespace, e.g. `[Hello!] blah...`
+- `t` - tag: HTML tag
 
 An example is `di{`, which deletes everything enclosed in the current `{` pair. `{whatever}` → `{}`.
 
@@ -179,6 +188,8 @@ Move cursor _up_ / _down_ half a screen size.
 Re-selects the last selection from VISUAL mode.
 - `gi` - **goto-insertion**  
 Goes to the last insertion location and enters INSERT mode.
+- `gf` - **goto-file**  
+Goes to the file path under the cursor.
 - `gq` - **wrap**  
 Wraps the specified text (selection/movement) to `textwidth`
 - `ZQ` - **force quit**  
@@ -218,6 +229,9 @@ Replaces all ocurences of _`search`_ with _`replace`_ within the current line (o
     - The delimiter is any character to separate the different parts, preferably that is not in _`search`_ or _`replace`_ so that you don't need to escape it. Traditionally, it's `/`. 
 - `:term` - **terminal**  
 Opens a terminal view. To exit, use `Ctrl`+`w`+`N`.
+- `:norm [actions]` - **batch execute actions**  
+Executes the specified normal mode _actions_ for the current line, e.g. `:norm A}` appends a `}` to the end of the line.
+    - Extra useful when combining it w/ VISUAL LINE mode, as it allows you to execute actions for multiple lines, kind of a mini-[macro](#macros).
 
 
 
@@ -279,6 +293,7 @@ Moves to the next tab.
 Moves to the previous tab.
 
 
+
 ## Clipboard
 When yanking or pasting text in Vim, it only works _inside_ of Vim, that is, you can't copy stuff into/from your system's clipboard.  
 In order to access your system's clipboard, use `"+` before any yank, delete, or paste.  
@@ -290,6 +305,7 @@ For this to work, remember to install `vim-gtk3` on Linux.
 [^1]: For Neovim users using Lua config, use `vim.opt.clipboard = 'unnamedplus'`.
 
 
+
 ## Configuration
 Config files are stored in `~/.vimrc`. You can check [my personal configuration](https://github.com/rajayonin/dotfiles/blob/main/vim/.vimrc).
 
@@ -297,6 +313,14 @@ For more information, check `:help vimrc-intro` and `:help option-list`.
 
 
 <!-- TODO: vim surround -->
+
+
+
+## Getting help
+To access the manual, type `:help`. You can also search by term, e.g. `:help word-motions`. Inside the manual, use `K` to go to the definition of the term under the cursor.
+
+There is also `:vimtutor`, which is a quick overview of everything Vim has to offer.
+
 
 
 ## More information
