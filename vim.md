@@ -340,17 +340,18 @@ There is also `:vimtutor`, which is a quick overview of everything Vim has to of
 
 
 ## More information
-- For a more exhaustive cheatsheet, please check [Vim Cheat Sheet](https://vim.rtorr.com/).
-- For an interactive Vim tutorial and console please check [Interactive Vim tutorial](https://openvim.com/tutorial.html).
+- For a more "philosophical" introduction to Vim, watch [No Boilerplate - Writing at the Speed of Thought](https://youtu.be/sqm4-B07LsE)
+- If you want a more exhaustive cheatsheet, please check out [Vim Cheat Sheet](https://vim.rtorr.com/).
+- For an interactive Vim tutorial, please check [Interactive Vim tutorial](https://openvim.com/tutorial.html).
 - For an online Vim editor, go to [Vim Online Editor](https://www.vimonlineeditor.com/).
 - For a more in-depth reference guide, check out [Vim reference](https://learnbyexample.github.io/vim_reference/)
-- If you also want to see what Vim can do (plugins, etc), watch [CTT's video](https://youtu.be/P88ydZVcm1s).
 - [Sylvan Franklin on YouTube](https://www.youtube.com/playlist?list=PLmJxZoD0RVtAlKCeLdRdpcuhx49aRZh4D) has also a set of videos with cool Vim tips.
 - Many IDEs support Vim emulation:
   - [VSCodeVim](https://marketplace.visualstudio.com/items/?itemName=vscodevim.vim) (VS Code)
   - [IdeaVim](https://plugins.jetbrains.com/plugin/164-ideavim) (JetBrains IDEs)
   - [Vrapper](https://marketplace.eclipse.org/content/vrapper-vim) (Eclipse)
   - [Evil](https://github.com/emacs-evil/evil) (Emacs)
+- If you're using Vim for coding, I _strongly_ suggest you set up [LSP](https://microsoft.github.io/language-server-protocol/), see [Jakub Kadlčík - LSP for Vim Boomers](https://www.youtube.com/watch?v=-aIPEOxUCUY)
 - May I suggest using [Neovim](https://neovim.io/) instead of Vim? It's _like_ Vim, with worse performance, but easier configuration, better plugins, and better overall support.
     - There are some pre-configured NeoVim "distros", like [LazyVim](https://www.lazyvim.org/), [AstroNvim](https://astronvim.com/) and [LunarVim](https://www.lunarvim.org/es/)
     - Check out [neovim-learning](https://github.com/guluc3m/neovim-learning) if you want to build it yourself
