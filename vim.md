@@ -309,6 +309,37 @@ Moves to the next tab.
 Moves to the previous tab.
 
 
+## Folds
+Folds allow you to hide lines from your files, for ease of use and peace of mind.
+- `za` - **toggle fold**  
+Toggles the fold open/close under the cursor
+    - `zA` - **toggle all folds**  
+    Toggles _all_ folds
+        - xers
+            - fefe
+- `zf[movement]` - **create fold**  
+Creates a fold from the cursor to the end of the specified _movement_
+- `zd` - **delete fold**  
+Deletes the fold under the cursor
+- `zi` - **toggle folding**  
+Toggles folding for the current buffer
+
+One thing to take into account is the `foldlevel` variable. This controls the global fold level. By default, it starts at `0`.
+- `zr` - **reduce folds**  
+Increases fold level by 1
+    - `zR` - **open all folds**  
+    Opens all folds. Maxes out fold level
+- `zm` - ** fold more**  
+Reduces fold level by 1
+    - `zM` - **close all folds**  
+    Closes all folds. Sets `foldlevel` to 0
+
+> [!TIP]
+> This can work _magically_ if setup correctly, e.g. if the folds are provided by Vim's syntax highlighter, TreeSitter, or an LSP.
+> 
+> Checkout the documentation (`:help folding`), and if you're in NeoVim, check the [nvim-ufo](https://github.com/kevinhwang91/nvim-ufo) plugin.
+
+
 
 ## Clipboard
 When yanking or pasting text in Vim, it only works _inside_ of Vim, that is, you can't copy stuff into/from your system's clipboard.  
